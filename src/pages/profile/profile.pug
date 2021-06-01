@@ -1,0 +1,23 @@
+include ../../layout/page.pug
+include components/profileListItem
+
+- const profiles = {'Почта': 'pochta@yandex.ru', 'Логин': 'ivanivanov', 'Имя': 'Иван', 'Фамилия': 'Иванов', 'Имя в чате': 'Иван', 'Телефон': '+7 (909) 967 30 30'}
+
++title('Профиль', 'profile.sass', '../../layout/style.sass')
+main.profile-wrap
+  section.profile
+    .profile-avatar
+      .profile-image-wrap
+        img.profile-image(src="../../images/avatar.png")
+      h2.title.title-profile Иван
+    .profile-content
+      ul.prifile-content-list
+        +profileListItem(profiles)
+    .prifile-setting
+      ul.profile-setting-list
+        li.profile-setting-item
+          a.link.profile-setting-link(href="setProfile/setProfile.pug") Изменить данные
+        li.profile-setting-item
+          a.link.profile-setting-link(href="setPassword/setPassword.pug") Изменить пароль
+        li.profile-setting-item
+          a.link.profile-setting-link.exit(href="../chat/chat.pug") Выйти

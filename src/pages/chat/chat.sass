@@ -1,0 +1,146 @@
+@import "components/chatListItem/chatListItem"
+@import "components/commonMessage/commonMessage"
+.chat-wrap
+  display: flex
+  max-width: 1280px
+  margin: 0 auto
+.chat-wrap > section
+  height: 100vh
+.sidebar
+  width: 310px
+  padding: 10px
+  font-size: 0.75rem
+  background-color: #FBFBFB
+.sidebar-header
+  padding-bottom: 14px
+  height: 100px
+.sidebar-profile
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  height: 47px
+.chat-list
+  min-height: calc(100vh - 110px)
+  max-height: calc(100vh - 110px)
+  overflow-y: auto
+.link-profile
+  color: #999999
+  font-size: 0.75rem
+.message
+  flex-grow: 1
+.input-search
+  width: 100%
+  padding: 10px
+  background: #EFEFEF
+  border-radius: 5px
+  border: none
+label[for='message']
+  display: flex
+  flex-grow: 1
+input[name='message']
+  width: 100%
+  background-color: #EFEFEF
+  border-radius: 20px
+  border: none
+  padding: 10px 20px
+  font-size: 0.75rem
+  color: #999999
+.btn
+  &-message-box
+    margin: 0 10px
+.message
+  padding: 10px 20px
+.message-header
+  height: 44px
+  border-bottom: 1px solid #EAEAEA
+.message-header-wrap
+  display: flex
+  justify-content: space-between
+.current-message-author
+  display: flex
+.author-avatar
+  height: 34px
+  width: 34px
+  margin-right: 10px
+.author-name
+  display: flex
+  flex-direction: column
+  justify-content: center
+.messanger
+  font-size: 0.75rem
+  max-height: calc(100vh - 108px)
+  min-height: calc(100vh - 108px)
+  overflow-y: auto
+.messanger-list
+  display: flex
+  flex-direction: column
+.message-box
+  display: flex
+  justify-content: space-between
+  height: 54px
+  padding: 10px 0
+  border-top: 1px solid #EAEAEA
+.btn-message-box.send
+  width: 28px
+  height: 28px
+  align-self: center
+  border-radius: 100%
+  background-color: #3369f3
+.btn-message-box.attach
+  align-self: center
+  width: 32px
+  height: 32px
+  background-color: inherit
+  background-image: url('../../images/attach.png')
+.message-nav
+  position: relative
+.set-user-modal
+  display: none
+  flex-direction: column
+  position: absolute
+  right: -5px
+  top: 52px
+  width: 210px
+  padding: 15px
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14)
+  border-radius: 12px
+  background-color: #ffffff
+  z-index: 100
+  font-size: 0.75rem
+.set-user-modal.active
+  display: flex
+.btn-set-user
+  position: relative
+  width: 25px
+  height: 25px
+  background-color: #f5f5f5
+  border-radius: 50%
+  &:hover
+    background-color: #999999
+.btn-set-user > span
+  position: absolute
+  left: 11px
+  width: 3px
+  height: 3px
+  background-image: url(../../images/add_user.png)
+.btn-set-user.top
+  top: 5px
+.btn-set-user.center
+  top: 11px
+.btn-set-user.bottom
+  bottom: 5px
+.set-user-link
+  text-decoration: none
+  color: #000000
+  display: block
+  padding-left: 37px
+.set-user-link.add
+  margin-bottom: 20px
+.arrow-right-4
+  margin-top: 3px
+  width: 20px
+  height: 20px
+  cursor: pointer
+.arrow-right-4 polygon
+  fill: #ffffff
+  transition: fill 0.5s ease-out
