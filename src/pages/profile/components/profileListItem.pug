@@ -1,0 +1,5 @@
+mixin profileListItem(profile)
+  each val, k in profile
+    li.profile-list-item
+      h3.profile-item-name= k
+      span.profile-item-value= val

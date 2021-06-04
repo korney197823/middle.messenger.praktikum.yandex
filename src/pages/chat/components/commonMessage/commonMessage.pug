@@ -1,0 +1,24 @@
+mixin commonMessage(commonMessage)
+  if commonMessage.type === 'date'
+    li.common-message.is-time
+      time= commonMessage.date
+  else if commonMessage.type === 'text'
+    li.common-message(class=commonMessage.myMessage ? 'is-you' : 'is-other')
+      p.common-message-text= commonMessage.text
+      if !commonMessage.myMessage
+        time.common-message-date(datetime='')= commonMessage.date
+      if commonMessage.myMessage
+        .common-message-info
+          span.status.left.is-seen &#1003;
+          span.status.right.is-seen &#1003;
+        time.common-message-date(datetime='')= commonMessage.date
+  else if commonMessage.type === 'image'
+    li.common-message.is-image(class=commonMessage.myMessage ? 'is-you' : 'is-other')
+      img(src=commonMessage.img)
+      if !commonMessage.myMessage
+        time.common-message-date(datetime='')= commonMessage.date
+      if commonMessage.myMessage
+        .common-message-info
+          span.status.left.is-seen &#1003;
+          span.status.right.is-seen &#1003;
+        time.common-message-date(datetime='')= commonMessage.date
