@@ -1,45 +1,59 @@
 .chat-list-item
   border-top: 1px solid #EAEAEA
+
 .chat-item-wrap
   display: flex
   padding: 12px 0
+
 .chat-item-avatar
-  width: 57px
   margin-right: 10px
+  width: 57px
+
 .chat-item-content-wrap
   display: flex
   flex-direction: column
   width: 233px
-.chat-item-info, .chat-item-content
+
+.chat-item-info,
+.chat-item-content
   display: flex
   justify-content: space-between
-.chat-item-author, .chat-item-text
+
+.chat-item-author,
+.chat-item-text
   flex-grow: 1
+
 .chat-item-author
   font-size: 0.8125rem
   font-weight: 600
+
 .chat-item-text
-  width: 193px
+  color: #999
   font-size: 0.75rem
   font-weight: 500
-  color: #999999
+  width: 193px
+
 .chat-item-text-self
-  color: #000000
-.chat-item-time, .chat-item-unread
+  color: #000
+
+.chat-item-time,
+.chat-item-unread
   width: 40px
+
 .chat-item-unread > span
-  width: 20px
-  height: 20px
-  margin: 0 auto
+  align-items: center
+  background-color: #3369f3
   border-radius: 100%
+  color: #fff
   display: flex
+  height: 20px
   justify-content: center
-  align-items: center
-  color: #ffffff
-  background-color: #3369F3
+  margin: 0 auto
+  width: 20px
+
 .chat-item-time > span
-  display: flex
-  justify-content: center
   align-items: center
+  color: #999
+  display: flex
   font-size: 0.5625rem
-  color: #999999
+  justify-content: center
