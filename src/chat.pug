@@ -1,0 +1,54 @@
+include layout/page.pug
+div.app
+script(src='pages/chat/index.ts')
+
+//include components/chatListItem/chatListItem
+//include components/commonMessage/commonMessage
+//
+//- const chatList = [{avatar: '../../images/avatar.png', name: 'Андрей', time: '10:42', text: 'Изображение', status: 'it', unread: 2}, {avatar: '../../images/avatar.png', name: 'Киноклуб', time: '12:42', text: 'Стикер', status: 'self', unread: 0}, {avatar: '../../images/avatar.png', name: 'Илья', time: '15:12', text: 'Друзья, у меня для вас особенный выпуск новостей!', status: 'it', unread: 4}]
+//- const messages = [{type: 'date', date: '19 июня'}, {type: 'text', myMessage: false, text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну.', date: '11:56'}, {type: 'image', img: '../../images/foto.png', date: '11:56', myMessage: false}, {type: 'text', date: '12:00', myMessage: true, text: 'Круто!'}]
+//+title('Чат', 'chat.sass', '../../layout/style.sass')
+//main.chat-wrap
+//  section.sidebar
+//    header.sidebar-header
+//      .sidebar-profile
+//        a.link.link-profile(href='../profile/profile.pug') Профиль
+//      .sidebar-search
+//        label
+//          input.input-search(type='text', placeholder='Поиск')
+//    .chat-list-wrap
+//      ul.chat-list
+//        each item in chatList
+//          +chatListItem(item)
+//  section.message
+//    header.message-header
+//      .message-header-wrap
+//        .current-message-author
+//          .author-avatar
+//            img(src='../../images/avatar.png' alt='avatar')
+//          .author-name
+//            span.author-name-text Вадим
+//        nav.message-nav
+//          button#set-user.btn.btn-set-user
+//            span.btn-set-user.top
+//            span.btn-set-user.center
+//            span.btn-set-user.bottom
+//          .set-user-modal
+//            a.set-user-link.add(href='#') Добавить пользователя
+//            a.set-user-link.delete(href='#') Удалить пользователя
+//    .messanger
+//      .messanger-info
+//        p.messanger-info-text Выберите чат чтобы отправить сообщение
+//        ul.messanger-list
+//          each item in messages
+//            +commonMessage(item)
+//
+//    form#message-box.message-box
+//      button.btn.btn-message-box.attach
+//        span.icon.icon-attach
+//      label(for='message')
+//        input#message(type='text' placeholder='Сообщение' name='message')
+//      button.btn.btn-message-box.send
+//        span.icon.icon-send
+//          svg.arrow-right-4(viewBox='0 0 100 85')
+//            polygon(points='58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0 58.263,0.056')

@@ -1,0 +1,1 @@
+const chatTmpl = 'main.chat-wrap !{chatContainer}'
