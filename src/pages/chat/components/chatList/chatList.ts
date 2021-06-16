@@ -21,14 +21,6 @@ export default class ChatList extends Block<Props> {
         }),
         new ChatListItem({
           avatar: '../../images/avatar.png',
-          name: 'Киноклуб',
-          date: '12:42',
-          text: 'Стикер',
-          status: 'self',
-          countUnreadMessage: 0
-        }),
-        new ChatListItem({
-          avatar: '../../images/avatar.png',
           name: 'Илья',
           date: '15:12',
           text: 'Друзья, у меня для вас особенный выпуск новостей!',
