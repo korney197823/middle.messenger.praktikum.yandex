@@ -4,5 +4,5 @@ export type Props = {
   date: string
   status: string
   text: string
-  countUnreadMessage: string
+  countUnreadMessage: number
 }

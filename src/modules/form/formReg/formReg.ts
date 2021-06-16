@@ -13,7 +13,7 @@ export default class FormReg extends Block<Props> {
         title: 'Регистрация',
         text: 'Зарегистрироваться',
         isLink: true,
-        href: '/login.pug',
+        href: 'chat.html',
         linkText: 'Уже зарегистрированы?',
         content: [
           new FormField({

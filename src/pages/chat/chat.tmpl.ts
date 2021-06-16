@@ -1,1 +1,1 @@
-const chatTmpl = 'main.chat-wrap !{chatContainer}'
+export const chatTmpl = 'main.chat-wrap !{chatContainer}'
