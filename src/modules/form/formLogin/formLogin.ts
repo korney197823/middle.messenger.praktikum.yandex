@@ -13,7 +13,7 @@ export default class FormLogin extends Block<Props> {
         title: 'Авторизация',
         text: 'Войти',
         isLink: true,
-        href: '#',
+        href: 'registration.html',
         linkText: 'Нет аккаунта?',
         content: [
           new FormField({
