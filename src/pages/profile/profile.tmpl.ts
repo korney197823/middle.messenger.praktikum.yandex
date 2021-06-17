@@ -1,0 +1,1 @@
+export const profileTmpl = 'main.profile-wrap !{content}'
