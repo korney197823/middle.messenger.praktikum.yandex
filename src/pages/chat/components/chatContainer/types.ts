@@ -1,5 +1,7 @@
 import ChatList from '../chatList/chatList'
+import Messenger from '../messenger/messenger'
 
 export type Props = {
-  chatList: ChatList
+  chatList: ChatList,
+  messenger: Messenger
 }

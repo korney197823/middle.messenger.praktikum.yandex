@@ -1,6 +1,4 @@
 export const myMessageTmpl = `
-li.common-message.is-time
-  time !{time}
 li.common-message(class='is-you')
   p.common-message-text !{text}
     .common-message-info

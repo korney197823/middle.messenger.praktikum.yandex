@@ -1,3 +1,5 @@
 export const chatContainerTmpl = `
-| !{chatList}
+.chat-container
+  | !{chatList}
+  | !{messenger}
 `

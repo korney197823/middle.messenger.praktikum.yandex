@@ -13,7 +13,7 @@ export default class MessengerContent extends Block<Props> {
       messages: [
         new YourMessage({
           time: '11:56',
-          text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории'
+          text: 'Привет! Как оно?'
         }),
         new MyMessage({
           time: '12:00',
