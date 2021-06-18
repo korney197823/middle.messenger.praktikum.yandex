@@ -1,7 +1,7 @@
 import formField from '../formField/formField'
 
 export type Props = {
-  title: string
+  title?: string
   content: formField[]
   text?: string
   isLink?: boolean
