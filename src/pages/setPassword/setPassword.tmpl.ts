@@ -1,0 +1,1 @@
+export const setPasswordTmpl = 'main.profile-wrap !{form}'
