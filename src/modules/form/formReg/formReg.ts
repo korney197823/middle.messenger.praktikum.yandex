@@ -48,19 +48,34 @@ export default class FormReg extends Block<Props> {
           }),
           new FormField({
             labelName: 'Пароль (еще раз)',
-            fieldName: 'password_confirm',
+            fieldName: 'confirmPassword',
             type: 'text'
           }),
         ],
       }),
       events: {
-        submit: (e) => {
-          e.preventDefault()
-          console.log('Hi registration')
-        }
+        submit: (e) => this.onSubmit(e)
       }
     });
   }
+
+  onSubmit(e) {
+    e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement)
+
+    const form = {
+      email: formData.get('email'),
+      login: formData.get('login'),
+      first_name: formData.get('first_name'),
+      second_name: formData.get('second_name'),
+      phone: formData.get('phone'),
+      password: formData.get('password'),
+      confirmPassword: formData.get('confirmPassword')
+    }
+    if(!this.props.form.onValid(form, {key: 'confirmPassword', value: form.password as string})) return
+
+  }
+
   render() {
     const { form } = this.props
     const el = compile(formRegTmpl, {

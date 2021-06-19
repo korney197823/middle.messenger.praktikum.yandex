@@ -29,12 +29,21 @@ export default class FormLogin extends Block<Props> {
         ],
       }),
       events: {
-        submit: (e) => {
-          e.preventDefault()
-          console.log('Hi')
-        }
+        submit: (e) => this.onSubmit(e)
       }
     });
+  }
+
+  onSubmit(e) {
+    e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement)
+
+    const form = {
+      login: formData.get('login'),
+      password: formData.get('password')
+    }
+    if (!this.props.form.onValid(form)) return
+    console.log(form)
   }
   render() {
     const { form } = this.props

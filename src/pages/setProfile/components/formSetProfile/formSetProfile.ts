@@ -53,13 +53,26 @@ export default class FormSetProfile extends Block<Props> {
         ]
         }),
       events: {
-        submit: (e) => {
-          e.preventDefault()
-          console.log('Hi SetProfileForm')
-        }
+        submit: (e) => this.onSubmit(e)
       }
     });
   }
+
+  onSubmit(e) {
+    e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement)
+
+    const form = {
+      email: formData.get('email'),
+      login: formData.get('login'),
+      first_name: formData.get('first_name'),
+      second_name: formData.get('second_name'),
+      display_name: formData.get('display_name'),
+      phone: formData.get('phone')
+    }
+    if(!this.props.form.onValid(form)) return
+  }
+
   render() {
     const { form } = this.props
     const el = compile(formSetProfileTmpl,{

@@ -75,7 +75,6 @@ export default abstract class Block<T extends BlProps> {
     this.componentDidMount();
   }
 
-  // Может переопределять пользователь, необязательно трогать
   componentDidMount() {
     return
   }
@@ -88,8 +87,8 @@ export default abstract class Block<T extends BlProps> {
   }
 
   // Может переопределять пользователь, необязательно трогать
-  componentDidUpdate(oldProps, newProps) {
-    return true;
+  componentDidUpdate() {
+    return
   }
 
   setProps = nextProps => {
@@ -143,16 +142,15 @@ export default abstract class Block<T extends BlProps> {
   }
 
   private _makePropsProxy(props) {
-    const self = this;
     return new Proxy(props, {
       get(target, prop: string) {
         const value = target[prop]
         return typeof value === 'function' ? value.bind(target) : value
       },
-      set(target, prop: string, value) {
+      set: (target, prop: string, value: unknown) => {
         const oldTarget = {...target}
         target[prop] = value;
-        self.eventBus().emit(Block.EVENTS.FLOW_CDM, oldTarget, target)
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target)
         return true;
       },
       deleteProperty(target, prop) {
@@ -162,7 +160,6 @@ export default abstract class Block<T extends BlProps> {
   }
 
   private _createDocumentElement(tagName) {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
     return document.createElement(tagName);
   }
 

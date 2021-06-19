@@ -1,6 +1,7 @@
 import formFieldTmpl from './formField.tmpl'
 import Block from '../block/block'
 import compile from '../../utils/compile'
+import { VALIDATOR } from './validator'
 
 import { Props } from './types'
 
@@ -12,9 +13,33 @@ export default class FormField extends Block<Props> {
       isValid: true,
       fieldValue: '',
       events: {
-        focusout: (e) => console.log(e)
+        focusout: (e) => this.onBlur(e)
       },
     });
+  }
+
+  onValid(name: string, value: FormDataEntryValue | null, valueTwo?: string): {isValid: boolean, errorText: string} | void {
+    if (typeof value !== 'string') {
+      return
+    }
+    if (typeof valueTwo === 'string') {
+      return VALIDATOR[`${name}`]?.(value, valueTwo)
+    }
+    return VALIDATOR[`${name}`]?.(value)
+  }
+
+  onUpdate(name: string, value: FormDataEntryValue | null, relatedValue?: string) {
+    const { isValid = true, errorText = ''} = this.onValid(name, value, relatedValue) || {}
+    this.setProps({
+      ...this.props,
+      fieldValue: value,
+      isValid,
+      errorText
+    })
+  }
+  onBlur(e: FocusEvent) {
+    const { name, value } = (<HTMLInputElement>e.target)
+    this.onUpdate(name, value)
   }
 
   render() {

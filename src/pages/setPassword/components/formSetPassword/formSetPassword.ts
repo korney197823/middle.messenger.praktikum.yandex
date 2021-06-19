@@ -22,7 +22,7 @@ export default class FormSetPassword extends Block<Props> {
           }),
           new FormField({
             labelName: 'Новый пароль',
-            fieldName: 'newPassword',
+            fieldName: 'password',
             type: 'password',
             placeholder: '********'
           }),
@@ -35,13 +35,23 @@ export default class FormSetPassword extends Block<Props> {
         ]
       }),
       events: {
-        submit: (e) => {
-          e.preventDefault()
-          console.log('Hi SetPasswordForm')
-        }
+        submit: (e) => this.onSubmit(e)
       }
     });
   }
+
+  onSubmit(e) {
+    e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement)
+
+    const form = {
+      oldPassword: formData.get('oldPassword'),
+      password: formData.get('password'),
+      confirmPassword: formData.get('confirmPassword')
+    }
+    if(!this.props.form.onValid(form)) return
+  }
+
   render() {
     const { form } = this.props
     const el = compile(formSetPasswordTmpl,{
