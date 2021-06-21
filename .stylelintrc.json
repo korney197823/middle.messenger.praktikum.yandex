@@ -5,6 +5,7 @@
     "block-opening-brace-space-before": null,
     "selector-no-qualifying-type": null,
     "declaration-property-value-disallowed-list": null,
-    "no-missing-end-of-source-newline": null
+    "no-missing-end-of-source-newline": null,
+    "color-named": null
   }
 }

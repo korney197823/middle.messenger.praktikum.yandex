@@ -2,12 +2,12 @@
 import {v4 as makeUUID} from 'uuid'
 import EventBus from '../eventBus/eventBus'
 // @ts-ignore
-import isEqual from 'lodash.isequal';
-import {BlProps} from './types'
+import isEqual from 'lodash.isequal'
+import {BlockProps} from './types'
 
 
 
-export default abstract class Block<T extends BlProps> {
+export default abstract class Block<T extends BlockProps> {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
@@ -31,7 +31,7 @@ export default abstract class Block<T extends BlProps> {
 
     this._id = makeUUID();
 
-    this.props = this._makePropsProxy({ ...props, _id: this._id});
+    this.props = this._makePropsProxy({ ...props, _id: this._id });
 
     this.eventBus = () => eventBus;
 
@@ -39,7 +39,7 @@ export default abstract class Block<T extends BlProps> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  private _registerEvents(eventBus) {
+  private _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
@@ -48,20 +48,23 @@ export default abstract class Block<T extends BlProps> {
 
   private _createResources() {
     const { tagName } = this._meta;
-    this._element = this._createDocumentElement(tagName);
+    this._element = this._createDocumentElement(tagName as string);
   }
 
   private _addEvents() {
     const { events ={} } = this.props;
 
-    Object.keys(events).forEach(eventName => {
-      this._element?.addEventListener(eventName, events[eventName]);
+    if (!this._element) return
+    Object.keys(events).forEach((eventName:keyof GlobalEventHandlersEventMap) => {
+      this._element?.addEventListener(eventName, events[eventName] as (e: Event) => void);
     });
   }
   private _removeEvents() {
     const { events ={} } = this.props;
-    Object.keys(events).forEach(eventName => {
-      this._element?.removeEventListener(eventName, events[eventName])
+
+    if (!this._element) return
+    Object.keys(events).forEach((eventName:keyof GlobalEventHandlersEventMap) => {
+      this._element?.removeEventListener(eventName, events[eventName] as (e: Event) => void)
     })
   }
 
@@ -79,7 +82,7 @@ export default abstract class Block<T extends BlProps> {
     return
   }
 
-  private _componentDidUpdate(oldProps, newProps) {
+  private _componentDidUpdate(oldProps: T, newProps: T) {
     if (!isEqual(oldProps, newProps)) {
       this._removeEvents()
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
@@ -91,7 +94,7 @@ export default abstract class Block<T extends BlProps> {
     return
   }
 
-  setProps = nextProps => {
+  setProps = (nextProps: Record<string, unknown>) => {
     if (!nextProps) {
       return;
     }
@@ -141,7 +144,7 @@ export default abstract class Block<T extends BlProps> {
     return this.element;
   }
 
-  private _makePropsProxy(props) {
+  private _makePropsProxy(props: T) {
     return new Proxy(props, {
       get(target, prop: string) {
         const value = target[prop]
@@ -149,17 +152,18 @@ export default abstract class Block<T extends BlProps> {
       },
       set: (target, prop: string, value: unknown) => {
         const oldTarget = {...target}
+        // @ts-ignore
         target[prop] = value;
         this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target)
         return true;
       },
-      deleteProperty(target, prop) {
+      deleteProperty() {
         throw new Error('нет доступа');
       }
     })
   }
 
-  private _createDocumentElement(tagName) {
+  private _createDocumentElement(tagName: string) {
     return document.createElement(tagName);
   }
 

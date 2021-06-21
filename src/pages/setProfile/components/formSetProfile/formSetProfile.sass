@@ -1,3 +1,4 @@
+@import "../../../../layout/variables"
 .profile-wrap > .form-card
   display: flex
   flex-direction: column
@@ -8,7 +9,7 @@
   flex-wrap: wrap
 
 .form-group:not(:last-of-type)
-  border-bottom: 1px solid #eaeaea
+  border-bottom: 1px solid $gray-darken
   display: flex
   justify-content: space-between
   padding: 10px 0
@@ -17,7 +18,7 @@
   margin-top: 50px
 
 .form-group > label
-  color: #1e1e1e
+  color: $black-light
   font-size: 0.8125rem
   font-weight: 500
   width: 30%
@@ -27,15 +28,13 @@
   background-image: none
   border: none
   box-shadow: none
-  outline: none
-  outline-offset: 0
   text-align: right
   width: 70%
 
 .btn-auth
-  background: #3369f3
+  background: $blue
   border-radius: 8px
-  color: #fff
+  color: $white
   font-size: 0.8125rem
   margin-bottom: 14px
   padding: 8px 16px

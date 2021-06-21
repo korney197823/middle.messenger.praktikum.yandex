@@ -16,7 +16,6 @@ export default class Messenger extends Block<Props> {
     });
   }
   render() {
-    console.log('Render Messenger')
     const { messengerHeader, messengerContent, messengerForm } = this.props
     return compile(messengerTmpl, {
       messengerHeader,

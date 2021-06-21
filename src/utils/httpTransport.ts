@@ -5,7 +5,7 @@ enum METHODS  {
   DELETE = 'DELETE'
 };
 
-function queryStringify(data) {
+function queryStringify(data:Record<string, unknown>) {
   if (typeof data !== 'object') {
     throw new Error('Data must be object');
   }
@@ -63,11 +63,16 @@ class HTTPTransport {
       );
 
       Object.keys(headers).forEach(key => {
+        // @ts-ignore
         xhr.setRequestHeader(key, headers[key]);
       });
 
       xhr.onload = function() {
-        resolve(xhr);
+        const { status, response } = xhr
+        if (status === 200 || status === 201) {
+          return resolve(JSON.parse(response))
+        }
+        return reject(JSON.parse(response))
       };
 
       xhr.onabort = reject;

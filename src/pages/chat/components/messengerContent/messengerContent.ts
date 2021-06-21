@@ -1,7 +1,7 @@
 import Block from '../../../../components/block/block'
+import compile from '../../../../utils/compile'
 import YourMessage from '../yourMessage/yourMessage'
 import MyMessage from '../myMessage/myMessage'
-import compile from '../../../../utils/compile'
 
 import { Props } from './types'
 import { messengerContentTmpl } from './messengerContent.tmpl'

@@ -1,3 +1,5 @@
+import { phoneRegExp, emailRegExp } from './constants/constants'
+
 export function emptyValid(value: string) {
   const result = {
     isValid: true,
@@ -33,8 +35,7 @@ export function emailValid(value: string) {
     return emptyValid(value)
   }
 
-  const regExp = /[a-zA-Z-\._]*@[a-zA-Z]*\.[a-zA-Z]*/gi
-  if (!regExp.test(value)) {
+  if (!emailRegExp.test(value)) {
     result.isValid = false;
     result.errorText = 'Введите правильный адрес эл.почты'
     return result;
@@ -73,9 +74,8 @@ export function phoneValid(value: string) {
   if (!emptyValid(value).isValid) {
     return emptyValid(value)
   }
-  const regExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
 
-  if (!regExp.test(value)) {
+  if (!phoneRegExp.test(value)) {
     result.isValid = false;
     result.errorText = 'Номер телефона заполнен некорректно'
     return result

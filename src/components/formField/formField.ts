@@ -13,7 +13,7 @@ export default class FormField extends Block<Props> {
       isValid: true,
       fieldValue: '',
       events: {
-        focusout: (e) => this.onBlur(e)
+        focusout: (e: FocusEvent) => this.onBlur(e)
       },
     });
   }

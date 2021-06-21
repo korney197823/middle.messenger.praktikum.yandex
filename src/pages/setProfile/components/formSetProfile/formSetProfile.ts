@@ -53,12 +53,12 @@ export default class FormSetProfile extends Block<Props> {
         ]
         }),
       events: {
-        submit: (e) => this.onSubmit(e)
+        submit: (e: Event) => this.onSubmit(e)
       }
     });
   }
 
-  onSubmit(e) {
+  onSubmit(e: Event) {
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
 
