@@ -54,12 +54,12 @@ export default class FormReg extends Block<Props> {
         ],
       }),
       events: {
-        submit: (e) => this.onSubmit(e)
+        submit: (e: Event) => this.onSubmit(e)
       }
     });
   }
 
-  onSubmit(e) {
+  onSubmit(e: Event) {
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
 
@@ -72,7 +72,7 @@ export default class FormReg extends Block<Props> {
       password: formData.get('password'),
       confirmPassword: formData.get('confirmPassword')
     }
-    if(!this.props.form.onValid(form, {key: 'confirmPassword', value: form.password as string})) return
+    this.props.form.onValid(form, {key: 'confirmPassword', value: form.password as string})
 
   }
 

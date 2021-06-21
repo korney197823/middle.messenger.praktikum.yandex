@@ -1,9 +1,9 @@
 // @ts-ignore
-import {v4 as makeUUID} from 'uuid'
-import EventBus from '../eventBus/eventBus'
-// @ts-ignore
 import isEqual from 'lodash.isequal'
+import {v4 as makeUUID} from 'uuid'
+// @ts-ignore
 import {BlockProps} from './types'
+import EventBus from '../eventBus/eventBus'
 
 
 

@@ -42,8 +42,7 @@ export default class FormLogin extends Block<Props> {
       login: formData.get('login'),
       password: formData.get('password')
     }
-    if (!this.props.form.onValid(form)) return
-    console.log(form)
+    this.props.form.onValid(form)
   }
   render() {
     const { form } = this.props

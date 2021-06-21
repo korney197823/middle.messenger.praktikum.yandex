@@ -70,7 +70,7 @@ export default class FormSetProfile extends Block<Props> {
       display_name: formData.get('display_name'),
       phone: formData.get('phone')
     }
-    if(!this.props.form.onValid(form)) return
+    this.props.form.onValid(form)
   }
 
   render() {
