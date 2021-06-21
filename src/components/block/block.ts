@@ -167,11 +167,11 @@ export default abstract class Block<T extends BlockProps> {
     return document.createElement(tagName);
   }
 
-  show() {
-    this.getContent().style.display = 'block';
+  show(classStyle: string) {
+    this.getContent().classList.add(classStyle);
   }
 
-  hide() {
-    this.getContent().style.display = 'none'
+  hide(classStyle: string) {
+    this.getContent().classList.remove(classStyle)
   }
 }

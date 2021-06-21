@@ -8,7 +8,7 @@ export default class MessengerForm extends Block<Props> {
   constructor() {
     super({
       events: {
-        submit: (e) => console.log(e)
+        submit: (e: Event)  => console.log(e)
       }
     });
   }

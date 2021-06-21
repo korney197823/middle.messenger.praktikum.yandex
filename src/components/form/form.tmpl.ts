@@ -1,10 +1,10 @@
 const formTmpl = `
 .form-card
-  h1.title.title-form !{title}
+  h1.title.title_form !{title}
   form#form-auth.form-auth(action='#')
     | !{content}
     .form-group
-      button.btn.btn-auth(type='submit') !{text}
+      button.btn.btn_auth(type='submit') !{text}
       if isLink
         a.link(href=href) !{linkText}
 `

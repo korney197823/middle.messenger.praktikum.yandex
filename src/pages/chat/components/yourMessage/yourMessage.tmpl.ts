@@ -1,6 +1,6 @@
 export const yourMessageTmpl = `
 li.common-message(class='is-other')
-  p.common-message-text !{text}
-    .common-message-info
-    time.common-message-date(datetime='') !{time}
+  p.common-message__text !{text}
+    .common-message__info
+    time.common-message__date(datetime='') !{time}
 `

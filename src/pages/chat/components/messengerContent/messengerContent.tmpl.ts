@@ -1,6 +1,6 @@
 export const messengerContentTmpl = `
 .messanger
-  .messanger-info
+  .messanger__wrap
     ul.messanger-list
       | !{messages}
 `
