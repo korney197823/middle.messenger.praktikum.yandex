@@ -1,38 +1,45 @@
+@import "../../layout/variables"
 .form-card
-  width: 340px
-  min-height: 450px
-  display: flex
-  padding: 30px
-  flex-direction: column
   border-radius: 12px
   box-shadow: 0 0 6px rgba(0, 0, 0, 14)
+  display: flex
+  flex-direction: column
+  min-height: 450px
+  padding: 30px
+  width: 340px
+
 .title
-  &-form
+  &_form
     font-size: 1.25rem
-    text-align: center
-    margin-bottom: 40px
     font-weight: 500
+    margin-bottom: 40px
+    text-align: center
+
 .form-group
   display: flex
   flex-direction: column
   justify-content: space-between
   margin-bottom: 16px
+
 .form-group:last-of-type
   flex-grow: 1
   justify-content: flex-end
   margin-bottom: 45px
+
 .form-auth
   display: flex
   flex-direction: column
   flex-grow: 1
+
 .form-group label
+  color: $grey-darkest
   font-size: 0.5625rem
-  color: #999999
-.btn-auth
-  width: 280px
-  margin-bottom: 14px
+
+.btn_auth
+  background: $blue
   border-radius: 8px
-  background: #3369F3
-  color: #ffffff
-  padding: 8px 10px
+  color: $white
   font-size: 0.8125rem
+  margin-bottom: 14px
+  padding: 8px 10px
+  width: 280px

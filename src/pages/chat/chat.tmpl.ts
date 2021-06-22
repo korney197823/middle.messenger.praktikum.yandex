@@ -1,0 +1,1 @@
+export const chatTmpl = 'main.chat-wrap !{chatContainer}'

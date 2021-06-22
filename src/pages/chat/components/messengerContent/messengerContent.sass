@@ -1,0 +1,45 @@
+@import "../../../../layout/variables"
+.common-message
+  margin-bottom: 10px
+  max-width: 400px
+  min-width: 114px
+  padding: 10px
+  position: relative
+  width: fit-content
+
+.common-message.is-time
+  align-self: center
+  color: $grey-darkest
+
+.common-message.is-other
+  background-color: $gray
+  border-radius: 0 10px 10px
+
+.common-message.is-image
+  background-color: $white
+  border-radius: 0
+
+.common-message.is-you
+  align-self: flex-end
+  background-color: $blue-light
+  border-radius: 10px 10px 0
+
+.common-message__text
+  margin-bottom: 15px
+
+.common-message__info
+  display: flex
+  justify-content: flex-end
+
+.status.is-seen
+  color: $blue
+
+.common-message__status_right,
+.common-message__status_left
+  position: absolute
+
+.common-message__status_left
+  left: 54px
+
+.common-message__status_right
+  left: 54px

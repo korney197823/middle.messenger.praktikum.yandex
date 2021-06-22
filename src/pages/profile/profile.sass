@@ -1,42 +1,57 @@
-@import "components/profileListItem"
+@import "../../layout/variables"
 .profile
-  width: 510px
   display: flex
   flex-direction: column
   font-size: 0.8125rem
+  padding: 10px 0
+  width: 510px
+
 .profile-avatar
   margin-bottom: 60px
+
 .profile-image-wrap
-  width: 130px
   height: 130px
   margin: 0 auto 20px
-.profile-image
   width: 130px
+
+.profile-image
+  background-color: $grey-darkest
+  border-radius: 50%
   height: 130px
+  width: 130px
+
+
 .profile-content
   margin-bottom: 60px
+
 .profile-setting-item
   padding: 10px
+
 .profile-setting-item:not(:last-of-type)
-  border-bottom: 1px solid #EAEAEA
+  border-bottom: 1px solid $gray-darken
+
 .profile-setting-link
   font-size: 0.8125rem
+
 .profile-setting-link.exit
-  color: #FF0000
+  color: #f00
+
 .title-profile
+  color: $black-light
   font-size: 1rem
   font-weight: 600
   text-align: center
-  color: #1e1e1e
-input[class="profile-item-value"]
+
+input[class='profile-item-value']
   border: none
   text-align: right
-.btn-auth
-  width: 280px
-  margin-bottom: 14px
+
+.btn_auth
+  background: $blue
   border-radius: 8px
-  background: #3369f3
-  color: #ffffff
-  padding: 8px 16px
+  color: $white
   font-size: 0.8125rem
+  margin-bottom: 14px
+  padding: 8px 16px
+  width: 280px
 

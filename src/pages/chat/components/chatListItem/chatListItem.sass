@@ -1,45 +1,60 @@
+@import "../../../../layout/variables"
 .chat-list-item
-  border-top: 1px solid #EAEAEA
-.chat-item-wrap
+  border-top: 1px solid $gray-darken
+
+.chat-list-item__wrap
   display: flex
   padding: 12px 0
-.chat-item-avatar
-  width: 57px
+
+.chat-list-item__avatar
   margin-right: 10px
-.chat-item-content-wrap
+  width: 57px
+
+.chat-list-item__content-wrap
   display: flex
   flex-direction: column
   width: 233px
-.chat-item-info, .chat-item-content
+
+.chat-list-item__info,
+.chat-list-item__content
   display: flex
   justify-content: space-between
-.chat-item-author, .chat-item-text
+
+.chat-list-item__author,
+.chat-list-item__text
   flex-grow: 1
-.chat-item-author
+
+.chat-list-item__author
   font-size: 0.8125rem
   font-weight: 600
-.chat-item-text
-  width: 193px
+
+.chat-list-item__text
+  color: #999
   font-size: 0.75rem
   font-weight: 500
-  color: #999999
-.chat-item-text-self
-  color: #000000
-.chat-item-time, .chat-item-unread
+  width: 193px
+
+chat-list-item__text_self
+  color: $black
+
+.chat-list-item__time,
+chat-list-item__unread
   width: 40px
-.chat-item-unread > span
-  width: 20px
-  height: 20px
-  margin: 0 auto
+
+chat-list-item__unread > span
+  align-items: center
+  background-color: $blue
   border-radius: 100%
+  color: $white
   display: flex
+  height: 20px
   justify-content: center
+  margin: 0 auto
+  width: 20px
+
+.chat-list-item__time > span
   align-items: center
-  color: #ffffff
-  background-color: #3369F3
-.chat-item-time > span
+  color: #999
   display: flex
-  justify-content: center
-  align-items: center
   font-size: 0.5625rem
-  color: #999999
+  justify-content: center

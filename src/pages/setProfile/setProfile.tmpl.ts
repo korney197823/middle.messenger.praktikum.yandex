@@ -1,0 +1,1 @@
+export const setProfileTmpl = 'main.profile-wrap !{form}'
